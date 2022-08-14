@@ -8,8 +8,8 @@ import pickle
 df = pd.read_csv("New_data.csv",index_col='Unnamed: 0')
 
 
-df.drop(['Occupation','BorrowerState'],axis=1,inplace=True)
-df_num = pd.get_dummies(data=df,columns=['ProsperRating (Alpha)','IsBorrowerHomeowner',
+df.drop(['Occupation','BorrowerState', 'ProsperRating (Alpha)'],axis=1,inplace=True)
+df_num = pd.get_dummies(data=df,columns=['IsBorrowerHomeowner',
   'EmploymentStatus','CurrentlyInGroup', 'IncomeRange', 'LoanStatus_new'],
                         drop_first=True)
 #print(df_num.head())
@@ -27,7 +27,7 @@ X_train = sc.fit_transform(X_train)
 X_test= sc.transform(X_test)
 
 # Instantiate the model
-classifier=KNeighborsClassifier()
+classifier=KNeighborsClassifier(n_neighbors=7)
 
 # Fit the model
 classifier.fit(X_train, y_train)

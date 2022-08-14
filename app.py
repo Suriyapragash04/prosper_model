@@ -41,71 +41,6 @@ def predict():
         InvestmentFromFriendsCount = float(request.form["InvestmentFromFriendsCount"])
         Investors = float(request.form["Investors"])
 
-        ProsperRating = request.form["ProsperRating"]
-        if (ProsperRating =='AA'):
-            ProsperRating_AA = 1
-            ProsperRating_B = 0
-            ProsperRating_C = 0
-            ProsperRating_D = 0
-            ProsperRating_E = 0
-            ProsperRating_HR = 0
-            ProsperRating_NC = 0
-        elif (ProsperRating=='B'):
-            ProsperRating_AA = 0
-            ProsperRating_B = 1
-            ProsperRating_C = 0
-            ProsperRating_D = 0
-            ProsperRating_E = 0
-            ProsperRating_HR = 0
-            ProsperRating_NC = 0
-        elif (ProsperRating=='C'):
-            ProsperRating_AA = 0
-            ProsperRating_B = 0
-            ProsperRating_C = 1
-            ProsperRating_D = 0
-            ProsperRating_E = 0
-            ProsperRating_HR = 0
-            ProsperRating_NC = 0
-        elif (ProsperRating=='D'):
-            ProsperRating_AA = 0
-            ProsperRating_B = 0
-            ProsperRating_C = 0
-            ProsperRating_D = 1
-            ProsperRating_E = 0
-            ProsperRating_HR = 0
-            ProsperRating_NC = 0
-        elif (ProsperRating=='E'):
-            ProsperRating_AA = 0
-            ProsperRating_B = 0
-            ProsperRating_C = 0
-            ProsperRating_D = 0
-            ProsperRating_E = 1
-            ProsperRating_HR = 0
-            ProsperRating_NC = 0
-        elif (ProsperRating=='HR'):
-            ProsperRating_AA = 0
-            ProsperRating_B = 0
-            ProsperRating_C = 0
-            ProsperRating_D = 0
-            ProsperRating_E = 0
-            ProsperRating_HR = 1
-            ProsperRating_NC = 0
-        elif (ProsperRating=='NC'):
-            ProsperRating_AA = 0
-            ProsperRating_B = 0
-            ProsperRating_C = 0
-            ProsperRating_D = 0
-            ProsperRating_E = 0
-            ProsperRating_HR = 0
-            ProsperRating_NC = 1
-        else :
-            ProsperRating_AA = 0
-            ProsperRating_B = 0
-            ProsperRating_C = 0
-            ProsperRating_D = 0
-            ProsperRating_E = 0
-            ProsperRating_HR = 0
-            ProsperRating_NC = 0
         IsBorrowerHomeowner = request.form['IsBorrowerHomeowner']
         if IsBorrowerHomeowner == 'Yes':
             IsBorrowerHomeowner_Yes = 1
@@ -243,14 +178,8 @@ def predict():
             BankcardUtilization, AvailableBankcardCredit, TotalTrades,
             TradesOpenedLast6Months, DebtToIncomeRatio, StatedMonthlyIncome,
             MonthlyLoanPayment, InvestmentFromFriendsCount, Investors,
-            ProsperRating_AA,
-            ProsperRating_B ,
-            ProsperRating_C ,
-            ProsperRating_D ,
-            ProsperRating_E ,
-            ProsperRating_HR ,
-            ProsperRating_NC , IsBorrowerHomeowner_Yes,
-             EmploymentStatus_Fulltime,
+            IsBorrowerHomeowner_Yes,
+            EmploymentStatus_Fulltime,
             EmploymentStatus_Notavailable,
             EmploymentStatus_Notemployed,
             EmploymentStatus_Other,
