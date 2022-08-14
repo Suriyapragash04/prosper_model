@@ -1,17 +1,24 @@
-import numpy as np
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, render_template
+from flask_cors import cross_origin
+import sklearn
 import pickle
+import pandas as pd
 
-# Create flask app
 app = Flask(__name__)
 model = pickle.load(open("model.pkl", "rb"))
 
 @app.route("/")
-def Home():
-    return render_template("index.html")
+@cross_origin()
+def home():
+    return render_template("home.html")
 
-@app.route("/predict", methods = ["POST"])
+
+
+
+@app.route("/predict", methods = ["GET", "POST"])
+@cross_origin()
 def predict():
+    if request.method == "POST":
         Term = float(request.form["Term"])
         BorrowerRate = float(request.form["BorrowerRate"])
         ProsperScore = float(request.form["ProsperScore"])
@@ -266,7 +273,7 @@ def predict():
 
         return render_template('index.html', prediction_text= "Status of the loan is {}".format(output))
 
-
+    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
